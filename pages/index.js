@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import getProcess from 'next/config'
 
 export default function Home() {
-  console.log(process)
+  console.log(getProcess())
 
   return (
     <div className={styles.container}>
