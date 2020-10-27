@@ -1,9 +1,14 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import getProcess from 'next/config'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig} = getConfig()
+
+
 
 export default function Home() {
-  console.log(getProcess())
+
+  console.log(publicRuntimeConfig.API_ENDPOINT)
 
   return (
     <div className={styles.container}>
