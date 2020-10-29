@@ -28,4 +28,4 @@ jobs:
           key: ${{ secrets.GIT_AUTO_PULL }}
           port: 22
           source: ".next"
-          target: "/srv/www/dev.greenherbs.ru/.next/"
+          target: "/srv/www/dev.greenherbs.ru/"
