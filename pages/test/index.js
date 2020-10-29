@@ -1,12 +1,18 @@
 import Head from 'next/head'
 import getProcess from 'next/config'
 
-export default function Home() {
-  console.log(getProcess())
-
-  return (
-    <div>
-        Test
-    </div>
-  )
+function Test({data}){
+return (<div>Test, {JSON.stringify(data)}</div>)
 }
+
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+
+  const data = 'await res.json()'
+
+  // Pass data to the page via props
+  return { props: { data } }
+}
+
+export default Test
