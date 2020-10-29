@@ -25,6 +25,7 @@ jobs:
           port: 22
           script: |
              cd /srv/www/dev.greenherbs.ru
+             git stash
              git fetch && git pull origin master
              npm install
              npm run build
