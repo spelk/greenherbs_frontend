@@ -9,7 +9,7 @@ return (<div>Test, {JSON.stringify(data)}</div>)
 export async function getServerSideProps() {
   // Fetch data from external API
 
-  const data = 'await res.json()'
+  const data = 'another fucking one test'
 
   // Pass data to the page via props
   return { props: { data } }
