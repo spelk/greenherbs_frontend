@@ -1,14 +1,10 @@
+import { ApolloProvider } from "@apollo/client";
+import { useApollo } from "../src/apollo";
+
 import "../styles/globals.css";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import getConfig from "next/config";
 
-const { publicRuntimeConfig } = getConfig();
-
-function MyApp({ Component, pageProps }) {
-  const client = new ApolloClient({
-    uri: publicRuntimeConfig.API_ENDPOINT,
-    cache: new InMemoryCache(),
-  });
+function App({ Component, pageProps }) {
+  const client = useApollo(pageProps.initialApolloState);
 
   return (
     <ApolloProvider client={client}>
@@ -17,4 +13,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default App;
