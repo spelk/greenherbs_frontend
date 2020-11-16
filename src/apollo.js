@@ -16,7 +16,7 @@ function createIsomorphLink() {
 
 function createApolloClient() {
   return new ApolloClient({
-    ssrMode: typeof window === "undefined", // window allowed only in browser. if it is server ssr will equals "false".
+    ssrMode: typeof window === "undefined", // window allowed only in browser. if it is server ssr will equals "true".
     link: createIsomorphLink(), // variable from next.config.js
     cache: new InMemoryCache(),
   });
@@ -30,7 +30,7 @@ export function initializeApollo(initialState = null) {
     _apolloClient.cache.restore(initialState);
   }
 
-  if (typeof window === "undefined") return _apolloClient; // if it is server we return new _apolloClient.
+  if (typeof window === "undefined") return _apolloClient; // we return updated _apolloClient if it is server.
 
   apolloClient = apolloClient ?? _apolloClient;
 
