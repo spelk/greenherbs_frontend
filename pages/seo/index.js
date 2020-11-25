@@ -34,7 +34,7 @@ const GET_SEO = gql`
   }
 `;
 
-function Test({ data }) {
+function Seo({ data }) {
   return (
     <div>
       <Head>
@@ -62,4 +62,4 @@ export async function getServerSideProps() {
    } };
 }
 
-export default Test;
+export default Seo;
