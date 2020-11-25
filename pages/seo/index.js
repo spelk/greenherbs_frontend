@@ -38,12 +38,11 @@ function Test({ data }) {
   return (
     <div>
       <Head>
-        <title>{data.title}</title>
+        <title>Some title</title>
       </Head>
       <div>
-        Here is the seo content for this page, <pre></pre>
+        Here is the seo content for this page, <pre>{JSON.stringify(data)}</pre>
       </div>
-      {console.log(data)};
     </div>
   );
 }
