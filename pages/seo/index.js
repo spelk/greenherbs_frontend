@@ -15,13 +15,8 @@ const GET_SEO = gql`
   }
 `;
 
-function Seo({ data }) {
-  const apolloClient = initializeApollo();
-
-  apolloClient.writeQuery({
-    query: GET_SEO,
-    data
-  })
+function Seo() {
+  const data = useQuery(GET_SEO)
 
   return (
     <div>
