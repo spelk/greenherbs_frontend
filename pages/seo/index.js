@@ -16,7 +16,7 @@ const GET_SEO = gql`
 `;
 
 function Seo() {
-  const data = useQuery(GET_SEO)
+  const {data} = useQuery(GET_SEO)
 
   return (
     <div>
@@ -43,7 +43,7 @@ export async function getServerSideProps() {
   console.log(apolloClient.cache.extract())
   // Pass data to the page via props
   return { props: { 
-    data: apolloClient.cache.extract()
+    initialApolloState: apolloClient.cache.extract()
    } };
 }
 

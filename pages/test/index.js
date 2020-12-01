@@ -13,19 +13,15 @@ query getSeo {
 }
 `;
 
-function Test({ data }) {
+
+
+function Test() {
+  const {data} = useQuery(GET_SEO)
   console.log(data);
 return <div>Test, {JSON.stringify(data)}</div>;
 }
 
 // This gets called on every request
-export async function getServerSideProps() {
-  const apolloClient = initializeApollo();
 
-  // Pass data to the page via props
-  return { props: { 
-    data: apolloClient.cache.extract()
-   } };
-}
 
 export default Test;
