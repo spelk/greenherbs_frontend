@@ -1,49 +1,38 @@
 import { gql, useQuery } from "@apollo/client";
 import { initializeApollo } from "../../src/apollo";
+import Link from  'next/link';
 import Head from 'next/head';
 
 const GET_SEO = gql`
   query getSeo {
-    pageBy(pageId: 2) {
+    page(id: "2", idType: DATABASE_ID) {
       seo {
-        canonical
-        cornerstone
-        focuskw
-        metaDesc
         metaKeywords
-        metaRobotsNofollow
-        metaRobotsNoindex
-        opengraphAuthor
-        opengraphDescription
-        opengraphModifiedTime
-        opengraphPublishedTime
-        opengraphSiteName
-        opengraphPublisher
         opengraphTitle
-        opengraphType
-        opengraphUrl
-        twitterDescription
         title
-        twitterTitle
-        schema {
-          articleType
-          pageType
-        }
       }
     }
   }
 `;
 
-function Test({ data }) {
+function Seo({ data }) {
+  const apolloClient = initializeApollo();
+
+  apolloClient.writeQuery({
+    query: GET_SEO,
+    data
+  })
+
   return (
     <div>
       <Head>
-        <title>{data.title}</title>
+        <title>title</title>
       </Head>
       <div>
-        Here is the seo content for this page, <pre></pre>
+        Here is the seo content for this page, <pre>{JSON.stringify(data)}</pre>
+        {console.log(data)}
+        <Link href="/test">test</Link> 
       </div>
-      {console.log(data)};
     </div>
   );
 }
@@ -52,7 +41,7 @@ function Test({ data }) {
 export async function getServerSideProps() {
   const apolloClient = initializeApollo();
 
-  await apolloClient.query({
+  const getSeoQuery = await apolloClient.query({
     query: GET_SEO
   })
 
@@ -63,4 +52,4 @@ export async function getServerSideProps() {
    } };
 }
 
-export default Test;
+export default Seo;
