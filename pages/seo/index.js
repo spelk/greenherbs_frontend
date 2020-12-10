@@ -56,21 +56,6 @@ function Seo() {
         {seo.opengraphModifiedTime ? <meta property="og:modified_time" content={seo.opengraphModifiedTime} /> : null}
         {seo.opengraphPublishedTime ? <meta property="og:published_time" content={seo.opengraphPublishedTime} /> : null}
         {seo.opengraphUrl ? <meta property="og:url" content={seo.opengraphUrl} /> : null}
-
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G3TZ1F3LP4"></script>
-        <script>
-        dangerouslySetInnerHTML = {{
-          __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-G3TZ1F3LP4');
-          `
-        }}
-          
-        </script>
-
       </Head>
       <div>
         Here is the seo content for this page, <pre>{JSON.stringify(data)}</pre>
