@@ -3,7 +3,7 @@ export default function Home() {
 
   return (
     <div>
-      <title>Create Next App</title>
+      <h1>teest</h1>
     </div>
   );
 }
