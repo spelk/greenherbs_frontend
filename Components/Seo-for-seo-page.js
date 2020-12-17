@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import Link from "next/link";
 import Head from "next/head";
 
-import { initializeApollo } from "../../src/apollo";
+import { initializeApollo } from "../src/apollo";
 
 const GET_SEO = gql`
   query getSeo {
