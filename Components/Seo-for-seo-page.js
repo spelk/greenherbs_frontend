@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import Link from "next/link";
 import Head from "next/head";
 
-import { initializeApollo } from "../src/apollo";
+
 
 const GET_SEO = gql`
   query getSeo {
@@ -39,9 +39,11 @@ const GET_SEO = gql`
 function SeoForSeoPage() {
   const { data } = useQuery(GET_SEO);
 
+  console.log(data.page);
+
   const seo = data.page.seo;
 
-  console.log(data.page.seo);
+  
   return (
     <div>
       <Head>
@@ -92,21 +94,5 @@ function SeoForSeoPage() {
   );
 }
 
-// This gets called on every request
-export async function getServerSideProps() {
-  const apolloClient = initializeApollo();
-
-  const getSeoQuery = await apolloClient.query({
-    query: GET_SEO,
-  });
-
-  console.log(apolloClient.cache.extract());
-  // Pass data to the page via props
-  return {
-    props: {
-      initialApolloState: apolloClient.cache.extract(),
-    },
-  };
-}
 
 export default SeoForSeoPage;
