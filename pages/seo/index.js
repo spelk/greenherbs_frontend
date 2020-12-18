@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
-import dynamic from 'next/dynamic'
+//import dynamic from 'next/dynamic'
 
-const SeoForSeoPage = dynamic(() => import('../../Components/Seo-for-seo-page'), {loading: () => <p>Loading</p>});
+//const SeoForSeoPage = dynamic(() => import('../../Components/Seo-for-seo-page'), {loading: () => <p>Loading</p>});
 
 import { initializeApollo } from "../../src/apollo";
 
@@ -38,8 +38,58 @@ const GET_SEO = gql`
 `;
 
 function Seo() {
+  const { data } = useQuery(GET_SEO);
+
+  console.log(data.page);
+
+  const seo = data.page.seo;
   return (
-    <SeoForSeoPage />
+    <div>
+      <Head>
+        <title>{seo.title}</title>
+        {seo.metaDesc ? (
+          <meta name="description" content={seo.metaDesc} />
+        ) : null}
+        {seo.opengraphTitle ? (
+          <meta property="og:title" content={seo.opengraphTitle} />
+        ) : null}
+        {seo.opengraphType ? (
+          <meta property="og:type" content={seo.opengraphType} />
+        ) : null}
+        {seo.opengraphPublisher ? (
+          <meta property="og:publisher" content={seo.opengraphPublisher} />
+        ) : null}
+        {seo.opengraphSiteName ? (
+          <meta property="og:site_name" content={seo.opengraphSiteName} />
+        ) : null}
+
+        {seo.opengraphAuthor ? (
+          <meta property="og:author" content={seo.opengraphAuthor} />
+        ) : null}
+        {seo.opengraphDescription ? (
+          <meta property="og:description" content={seo.opengraphDescription} />
+        ) : null}
+        {seo.opengraphModifiedTime ? (
+          <meta
+            property="og:modified_time"
+            content={seo.opengraphModifiedTime}
+          />
+        ) : null}
+        {seo.opengraphPublishedTime ? (
+          <meta
+            property="og:published_time"
+            content={seo.opengraphPublishedTime}
+          />
+        ) : null}
+        {seo.opengraphUrl ? (
+          <meta property="og:url" content={seo.opengraphUrl} />
+        ) : null}
+      </Head>
+      <div>
+        Here is the seo content for this page, <pre>{JSON.stringify(data)}</pre>
+        <Link href="/test">test</Link>
+      </div>
+    </div>
   );
 }
 
