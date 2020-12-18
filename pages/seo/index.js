@@ -4,6 +4,8 @@ import { gql, useQuery } from "@apollo/client";
 //const SeoForSeoPage = dynamic(() => import('../../Components/Seo-for-seo-page'), {loading: () => <p>Loading</p>});
 
 import { initializeApollo } from "../../src/apollo";
+import Link from  'next/link';
+import Head from 'next/head';
 
 const GET_SEO = gql`
   query getSeo {
