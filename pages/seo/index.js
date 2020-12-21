@@ -2,7 +2,6 @@ import Link from  'next/link';
 import Head from 'next/head';
 
 
-
 function Seo() {
   return (
     <div>
@@ -15,7 +14,6 @@ function Seo() {
         <meta property="og:url" content="https://api.dev.greenherbs.ru/sample-page/" />
       </Head>
       <div>
-        Here is the seo content for this page, <pre>{JSON.stringify(data)}</pre>
         <Link href="/test">test</Link> 
       </div>
     </div>
