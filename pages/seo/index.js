@@ -1,46 +1,9 @@
-import { gql, useQuery } from "@apollo/client";
-import { initializeApollo } from "../../src/apollo";
 import Link from  'next/link';
 import Head from 'next/head';
 
-const GET_SEO = gql`
-  query getSeo {
-    page(id: "2", idType: DATABASE_ID) {
-      seo {
-        canonical
-        cornerstone
-        focuskw
-        metaDesc
-        metaKeywords
-        metaRobotsNofollow
-        metaRobotsNoindex
-        opengraphAuthor
-        opengraphDescription
-        opengraphModifiedTime
-        opengraphPublishedTime
-        opengraphSiteName
-        opengraphPublisher
-        opengraphTitle
-        opengraphType
-        opengraphUrl
-        twitterDescription
-        title
-        twitterTitle
-        schema {
-          articleType
-          pageType
-        }
-      }
-    }
-  }
-`;
+
 
 function Seo() {
-  const {data} = useQuery(GET_SEO);
-
-  const seo = data.page.seo;
-
-  console.log(data.page.seo);
   return (
     <div>
       <Head>
@@ -57,21 +20,6 @@ function Seo() {
       </div>
     </div>
   );
-}
-
-// This gets called on every request
-export async function getServerSideProps() {
-  const apolloClient = initializeApollo();
-
-  const getSeoQuery = await apolloClient.query({
-    query: GET_SEO
-  })
-
-  console.log(apolloClient.cache.extract())
-  // Pass data to the page via props
-  return { props: { 
-    initialApolloState: apolloClient.cache.extract()
-   } };
 }
 
 export default Seo;
