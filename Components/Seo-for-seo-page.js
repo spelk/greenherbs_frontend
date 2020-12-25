@@ -39,8 +39,6 @@ const GET_SEO = gql`
 function SeoForSeoPage() {
   const { data } = useQuery(GET_SEO);
 
-  console.log(data.page);
-
   const seo = data.page.seo;
 
   

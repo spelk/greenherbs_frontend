@@ -5,14 +5,15 @@
   "scripts": {
     "dev": "cross-env ENV='dev' next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next-boost"
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
     "@nexus/schema": "^0.18.0",
     "apollo-server-micro": "^2.19.0",
     "graphql": "^15.4.0",
-    "next": "9.5.5",
+    "next": "^10.0.4",
+    "next-boost": "^0.8.6",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
