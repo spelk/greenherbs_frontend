@@ -1,4 +1,5 @@
-![Deploy Production](https://github.com/spelk/greenherbs_frontend/workflows/Deploy%20Production/badge.svg?event=deployment_status)
+![Deploy Production](https://github.com/spelk/greenherbs_frontend/workflows/Deploy%20Production/badge.svg)
+![Deploy Staging](https://github.com/spelk/greenherbs_frontend/workflows/Deploy%20Staging/badge.svg)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
