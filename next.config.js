@@ -1,11 +1,14 @@
 module.exports = {
-  env: {
-
-  },
+  env: {},
   serverRuntimeConfig: {
-    ENV: process.env.ENV
+    ENV: process.env.ENV,
   },
   publicRuntimeConfig: {
-    API_ENDPOINT: process.env.ENV === 'dev' ? 'https://api.dev.greenherbs.ru/wp/graphql' : 'https://api.dev.greenherbs.ru/wp/graphql'
-  }
-}
+    API_ENDPOINT:
+      process.env.ENV === "dev"
+        ? "http://api.greenherbs.local/wp/graphql"
+        : process.env.ENV === "staging"
+        ? "https://apidev.greenherbs.ru"
+        : "https://greenherbs.ru",
+  },
+};
