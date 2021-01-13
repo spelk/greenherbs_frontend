@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 
 import SeoForSeoPage from "../../Components/SeoForSeoPage"
 import { GET_SEO } from "../../Graphql/seo"
-import WithSeo from "../../hoc/WithSeo"
 import { initializeApollo } from "../../src/apollo";
 
 
@@ -39,4 +38,4 @@ export async function getServerSideProps() {
   };
 }
 
-export default WithSeo(Seo);
+export default Seo;
