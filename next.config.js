@@ -9,6 +9,6 @@ module.exports = {
         ? "https://apidev.greenherbs.ru/wp/graphql"
         : process.env.ENV === "staging"
         ? "https://apidev.greenherbs.ru/wp/graphql"
-        : "https://greenherbs.ru/wp/graphql",
+        : "https://apidev.greenherbs.ru/wp/graphql",
   },
 };
