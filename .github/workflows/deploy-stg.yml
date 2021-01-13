@@ -1,10 +1,10 @@
-name: Deploy
+name: Deploy Staging
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ staging ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -25,11 +25,6 @@ jobs:
           port: 22
           script: |
              cd /srv/www/dev.greenherbs.ru
-             git stash
-             git fetch && git pull origin master
-             npm install
-             npm run build
-             cd /srv/www/greenherbs.ru
              git stash
              git fetch && git pull origin master
              npm install
