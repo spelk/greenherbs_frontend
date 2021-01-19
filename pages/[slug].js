@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import { gql } from "@apollo/client";
 
-import { GET_SEO } from "../Graphql/seo"
+import { GET_SEO } from "../Graphql/seo";
 import Menu from "../Components/Menu";
 import { initializeApollo } from "../src/apollo";
 
@@ -11,39 +11,37 @@ function Slug() {
     query: { slug },
   } = useRouter();
 
-  const { data } = useQuery(gql`
-  query getSeo {
-    postBy(uri: "https://apidev.greenherbs.ru/${slug}" ) {
-      seo {
-        canonical
-        cornerstone
-        focuskw
-        metaDesc
-        metaKeywords
-        metaRobotsNofollow
-        metaRobotsNoindex
-        opengraphAuthor
-        opengraphDescription
-        opengraphModifiedTime
-        opengraphPublishedTime
-        opengraphSiteName
-        opengraphPublisher
-        opengraphTitle
-        opengraphType
-        opengraphUrl
-        twitterDescription
-        title
-        twitterTitle
-        schema {
-          articleType
-          pageType
-        }
-      }
-    }
-  }
-  `)
-
-  console.log(data);
+  // const { data } = useQuery(gql`
+  // query getSeo {
+  //   postBy(uri: "https://apidev.greenherbs.ru/${slug}" ) {
+  //     seo {
+  //       canonical
+  //       cornerstone
+  //       focuskw
+  //       metaDesc
+  //       metaKeywords
+  //       metaRobotsNofollow
+  //       metaRobotsNoindex
+  //       opengraphAuthor
+  //       opengraphDescription
+  //       opengraphModifiedTime
+  //       opengraphPublishedTime
+  //       opengraphSiteName
+  //       opengraphPublisher
+  //       opengraphTitle
+  //       opengraphType
+  //       opengraphUrl
+  //       twitterDescription
+  //       title
+  //       twitterTitle
+  //       schema {
+  //         articleType
+  //         pageType
+  //       }
+  //     }
+  //   }
+  // }
+  // `);
 
   return (
     <>
@@ -55,12 +53,12 @@ function Slug() {
   );
 }
 
-export async function getServerSideProps( context ) {
-  const {params : {slug}} = context
+export async function getServerSideProps(context) {
+  const {
+    params: { slug },
+  } = context;
 
   const apolloClient = initializeApollo();
-
-  console.log(slug)
 
   await apolloClient.query({
     query: gql`
@@ -99,7 +97,7 @@ export async function getServerSideProps( context ) {
   // Pass data to the page via props
   return {
     props: {
-      initialApolloState: apolloClient.cache.extract(),
+      initialApolloState: {[slug]: apolloClient.cache.extract()},
     },
   };
 }
