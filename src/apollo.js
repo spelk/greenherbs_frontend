@@ -23,6 +23,7 @@ function createApolloClient() {
 }
 
 export function initializeApollo(initialState = null) {
+  console.log(initialState);
   const _apolloClient = apolloClient ?? createApolloClient(); // if apolloClient === undefined || apolloClient === null we create ApolloClient.
 
   if (initialState) {
@@ -33,7 +34,6 @@ export function initializeApollo(initialState = null) {
   if (typeof window === "undefined") return _apolloClient; // we return updated _apolloClient if it is server.
 
   apolloClient = apolloClient ?? _apolloClient;
-
   return apolloClient;
 }
 
