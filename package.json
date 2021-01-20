@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "cross-env ENV='dev' next dev -p 3002",
     "build": "next build",
-    "start": "next-boost -p 3000",
+    "start": "next-boost",
     "staging": "cross-env ENV='staging' next-boost -p 3001"
   },
   "dependencies": {
