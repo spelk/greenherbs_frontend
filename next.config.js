@@ -14,8 +14,12 @@ module.exports = {
   async headers() {
     return [
       {
-        source: '/about',
+        source: '/noSsr',
         headers: [
+          {
+            key: 'x-testestestset',
+            value: 'hellohellohellohellohello',
+          },
           {
             key: 'Server-Timing',
             value: 'db;dur=123;desc="Database", tmpl;dur=56;desc="Template processing"',
