@@ -1,5 +1,4 @@
 module.exports = {
-  target: "serverless",
   env: {},
   serverRuntimeConfig: {
     ENV: process.env.ENV,

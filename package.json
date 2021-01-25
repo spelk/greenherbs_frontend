@@ -6,7 +6,6 @@
     "dev": "cross-env ENV='dev' next dev -p 3002",
     "build": "next build",
     "start": "next-boost",
-    "postbuild": "next-on-netlify",
     "staging": "cross-env ENV='staging' next-boost -p 3001"
   },
   "dependencies": {
@@ -16,7 +15,6 @@
     "graphql": "^15.4.0",
     "next": "^10.0.4",
     "next-boost": "^0.8.6",
-    "next-on-netlify": "^2.8.4",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
