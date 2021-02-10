@@ -47,6 +47,7 @@ function Slug() {
 
   return (
     <>
+      <div>test perebildit`</div>
       <Menu />
       {elementorData
         ? JSON.parse(elementorData).map((row) => {
