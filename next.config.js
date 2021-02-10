@@ -10,22 +10,5 @@ module.exports = {
         : process.env.ENV === "staging"
         ? "https://apidev.greenherbs.ru/wp/graphql"
         : "https://apidev.greenherbs.ru/wp/graphql",
-  },
-  async headers() {
-    return [
-      {
-        source: '/noSsr',
-        headers: [
-          {
-            key: 'x-testestestset',
-            value: 'hellohellohellohellohello',
-          },
-          {
-            key: 'Server-Timing',
-            value: 'db;dur=123;desc="Database", tmpl;dur=56;desc="Template processing"',
-          },
-        ],
-      },
-    ]
-  },
+  }
 };
