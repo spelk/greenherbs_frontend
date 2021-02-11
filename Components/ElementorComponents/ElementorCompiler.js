@@ -22,7 +22,7 @@ const ElementorCompiler = () => {
 
   return (
     <>
-      {JSON.parse(elementorData).map((row) => {
+      {elementorData ? JSON.parse(elementorData).map((row) => {
         return (
           <div key={row.id} className="row">
             {row.elements.map((column) => {
@@ -45,7 +45,7 @@ const ElementorCompiler = () => {
             })}
           </div>
         );
-      })}
+      }) : null}
     </>
   );
 };
