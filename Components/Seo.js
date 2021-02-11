@@ -1,6 +1,22 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
 
-function SeoForSeoPage({seo}) {
+import { GET_SEO } from "../Graphql/seo";
+
+function Seo() {
+  const {
+    query: { slug },
+  } = useRouter();
+
+  const page = `https://apidev.greenherbs.ru/${slug}`;
+
+  const { data } = useQuery(GET_SEO, {
+    variables: {
+      page,
+    },
+  });
+
   return (
     <Head>
       <title>{seo.title}</title>
@@ -40,4 +56,4 @@ function SeoForSeoPage({seo}) {
   );
 }
 
-export default SeoForSeoPage;
+export default Seo;
