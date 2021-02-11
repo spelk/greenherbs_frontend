@@ -60,6 +60,7 @@ function Seo() {
         {seo.opengraphUrl ? (
           <meta property="og:url" content={seo.opengraphUrl} />
         ) : null}
+        <link rel="preconnect" href="https://apidev.greenherbs.ru"></link>
       </Head>
     );
   }
