@@ -17,7 +17,8 @@ function Seo() {
     },
   });
   const { postBy = {} } = data;
-  const { seo = false } = postBy;
+  console.log(typeof postBy, isNaN(postBy), postBy );
+  const { seo = false } = isNaN(postBy) ? postBy : {} ;
 
   if (seo) {
     return (
