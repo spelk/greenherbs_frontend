@@ -62,8 +62,10 @@ function Seo() {
         ) : null}
         <link rel="preconnect" href="https://apidev.greenherbs.ru"></link>
 
-
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G3TZ1F3LP4"></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-G3TZ1F3LP4"
+        ></script>
         <script>
           {`
           window.dataLayer = window.dataLayer || [];
@@ -76,7 +78,24 @@ function Seo() {
       </Head>
     );
   }
-  return (<title>no seo</title>)
+  return (
+    <Head>
+      <title>no seo</title>
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-G3TZ1F3LP4"
+      ></script>
+      <script>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-G3TZ1F3LP4');
+          `}
+      </script>
+    </Head>
+  );
 }
 
 export default Seo;
