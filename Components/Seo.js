@@ -16,8 +16,8 @@ function Seo() {
       page,
     },
   });
-  const { postBy } = data;
-  const { seo } = postBy;
+  const { postBy = {} } = data;
+  const { seo = false } = postBy;
 
   if (seo) {
     return (
