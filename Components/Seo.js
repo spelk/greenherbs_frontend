@@ -11,7 +11,7 @@ function Seo() {
 
   const page = `https://apidev.greenherbs.ru/${slug}`;
 
-  const { data } = useQuery(GET_SEO, {
+  const { data = {} } = useQuery(GET_SEO, {
     variables: {
       page,
     },
