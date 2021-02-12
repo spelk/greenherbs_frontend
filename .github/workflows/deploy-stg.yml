@@ -26,6 +26,6 @@ jobs:
           script: |
              cd /srv/www/dev.greenherbs.ru
              git stash
-             git fetch && git pull origin master
+             git fetch && git pull origin staging
              npm install
              npm run build
