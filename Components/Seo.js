@@ -1,23 +1,8 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { useQuery } from "@apollo/client";
 
-import { GET_SEO } from "../Graphql/seo";
+function Seo({getSeo}) {
+  const { postBy = {} } = getSeo.data;
 
-function Seo() {
-  const {
-    query: { slug },
-  } = useRouter();
-
-  const page = `https://apidev.greenherbs.ru/${slug}`;
-
-  const { data = {} } = useQuery(GET_SEO, {
-    variables: {
-      page,
-    },
-  });
-  const { postBy = {} } = data;
-  console.log(typeof postBy, isNaN(postBy), postBy );
   const { seo = false } = isNaN(postBy) ? postBy : {} ;
 
   if (seo) {
