@@ -6,12 +6,13 @@ import ElementorCompiler from "../Components/ElementorComponents/ElementorCompil
 import Seo from "../Components/Seo"
 import { initializeApollo } from "../src/apollo";
 
-function Slug() {
+function Slug({getSeo, getPageData}) {
+  console.log(getSeo, getPageData);
   return (
     <>
-      <Seo />
+      <Seo getSeo={getSeo}/>
       <Menu />
-      <ElementorCompiler />
+      <ElementorCompiler getPageData={getPageData}/>
     </>
   );
 }
@@ -38,23 +39,26 @@ export async function getStaticProps ({params}) {
 
   const apolloClient = initializeApollo();
 
-  await apolloClient.query({
+  const getSeo = await apolloClient.query({
     query: GET_SEO,
     variables: {
       page: `https://apidev.greenherbs.ru/${slug}`,
     },
   });
 
-  await apolloClient.query({
+  const getPageData = await apolloClient.query({
     query: GET_PAGE_DATA,
     variables: {
       page: `https://apidev.greenherbs.ru/${slug}`,
     },
   });
 
+  console.log(getSeo, getPageData);
+
   return {
     props: {
-      initialApolloState: apolloClient.cache.extract(),
+      getSeo,
+      getPageData
     },
     revalidate: 30,
   };
