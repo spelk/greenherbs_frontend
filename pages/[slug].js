@@ -7,7 +7,7 @@ import Seo from "../Components/Seo"
 import { initializeApollo } from "../src/apollo";
 
 function Slug({getSeo, getPageData}) {
-  console.log(getSeo, getPageData);
+  
   return (
     <>
       <Seo getSeo={getSeo}/>
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps ({params}) {
+export async function getStaticProps ({ params }) {
   const { slug } = params;
 
   const apolloClient = initializeApollo();
@@ -52,8 +52,6 @@ export async function getStaticProps ({params}) {
       page: `https://apidev.greenherbs.ru/${slug}`,
     },
   });
-
-  console.log(getSeo, getPageData);
 
   return {
     props: {

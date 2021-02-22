@@ -1,8 +1,8 @@
 import Head from "next/head";
 
-function Seo({getSeo}) {
-  const { postBy = {} } = getSeo.data;
-
+function Seo({getSeo = {}}) {
+  const { data = {} } = getSeo;
+  const { postBy = {} } = data;
   const { seo = false } = isNaN(postBy) ? postBy : {} ;
 
   if (seo) {
