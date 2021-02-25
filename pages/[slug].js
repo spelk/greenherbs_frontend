@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { GET_SEO } from "../Graphql/seo";
 import { GET_PAGE_DATA, GET_ALL_PAGES_SLUGS } from "../Graphql/pagesData";
 
@@ -5,14 +6,34 @@ import Menu from "../Components/Menu";
 import ElementorCompiler from "../Components/ElementorComponents/ElementorCompiler"
 import Seo from "../Components/Seo"
 import { initializeApollo } from "../src/apollo";
+import Modals from "../Components/Modals";
+//it needs relocate---------
+import { LOGIN_MUTATION } from '../Graphql/user';
+import { useMutation } from '@apollo/client';
+//---------
 
 function Slug({getSeo, getPageData}) {
-  
+  const [modalName, setModalName] = useState('');
+
+  //it needs relocate---------
+  const [login] = useMutation(LOGIN_MUTATION, {
+    variables: {
+      password: "D%MrPX5pmi4Pv7A0D9o3Dh&K",
+      username: "api_user",
+    },
+    onCompleted: ({ login }) => {
+      localStorage.setItem('AUTH_TOKEN', login.authToken);
+    }
+  });
+  //---------
+
+
   return (
     <>
-      <Seo getSeo={getSeo}/>
-      <Menu />
-      <ElementorCompiler getPageData={getPageData}/>
+      <Seo getSeo={getSeo} />
+      <Modals modalName={modalName} setModalName={setModalName} login={login} />
+      <Menu setModalName={setModalName} />
+      <ElementorCompiler getPageData={getPageData} />
     </>
   );
 }

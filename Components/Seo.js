@@ -52,7 +52,7 @@ function Seo({getSeo = {}}) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-G3TZ1F3LP4"
         ></script>
-        <script>
+        {/* <script>
           {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -60,7 +60,7 @@ function Seo({getSeo = {}}) {
 
           gtag('config', 'G-G3TZ1F3LP4');
           `}
-        </script>
+        </script> */}
       </Head>
     );
   }
@@ -71,7 +71,7 @@ function Seo({getSeo = {}}) {
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-G3TZ1F3LP4"
       ></script>
-      <script>
+      {/* <script>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -79,7 +79,7 @@ function Seo({getSeo = {}}) {
 
           gtag('config', 'G-G3TZ1F3LP4');
           `}
-      </script>
+      </script> */}
     </Head>
   );
 }

@@ -1,10 +1,11 @@
 import Link from  'next/link';
 
-const Menu = () => {
+const Menu = ({ setModalName }) => {
+
     return(
         <div>
             <Link href={'/sample-page'}>Sample page</Link>
-            <span onClick={} >Authorization</span>
+            <span onClick={() => setModalName('AUTHORIZATION') }>Authorization</span>
         </div>
     )
 }
