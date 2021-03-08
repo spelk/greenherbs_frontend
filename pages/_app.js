@@ -2,6 +2,7 @@ import { ApolloProvider } from "@apollo/client";
 import { useApollo } from "../src/apollo";
 
 import "../styles/globals.css";
+import "../styles/elementorStyles.css";
 
 function App({ Component, pageProps }) {
   const client = useApollo(pageProps.initialApolloState);

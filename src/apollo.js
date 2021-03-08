@@ -18,7 +18,7 @@ function createIsomorphLinkServer() {
 function createIsomorphLinkClient() {
   return createHttpLink({
     uri: publicRuntimeConfig.API_ENDPOINT,
-    credentials: 'include',
+    credentials: 'same-origin',
   });
 }
 

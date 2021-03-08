@@ -4,8 +4,10 @@ const Menu = ({ setModalName }) => {
 
     return(
         <div>
-            <Link href={'/sample-page'}>Sample page</Link>
-            <span onClick={() => setModalName('AUTHORIZATION') }>Authorization</span>
+            <Link href={'/sample-page'}>Sample page</Link><br />
+            <Link href={'/'}>Home</Link><br />
+            <Link href={'/test-page'}>Test</Link><br />
+            <span onClick={() => setModalName('AUTHORIZATION') }>Authorization</span><br />
         </div>
     )
 }
